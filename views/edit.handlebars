@@ -1,105 +1,72 @@
-{{!-- <form action="/todos/{{ todo._id }}?_method=PUT" method="POST">
-  <input type="checkbox" name="isDone" {{#if todo.isDone}} checked {{/if}}>
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <input type="text" placeholder="name" name="name" value="{{ todo.name }}">
-  <button type="submit">Save</button>
-  <a href="/">back</a>
-</form>
-
-
-
-           id : restaurantList.results[i].id,
-            name : restaurantList.results[i].name,
-            name_en : restaurantList.results[i].name_en,
-            category : restaurantList.results[i].category,
-            image : restaurantList.results[i].image,
-            location : restaurantList.results[i].location,
-            phone : restaurantList.results[i].phone,
-            google_map : restaurantList.results[i].google_map,
-            rating : restaurantList.results[i].rating,
-            description : restaurantList.results[i].description, --}}
-
-<header>
-  <!-- navigation -->
-  <nav class="navbar navbar-light bg-light">
-    <div class="container">
-      <a class="navbar-brand" href="/">
-          <img src="https://assets-lighthouse.s3.amazonaws.com/uploads/image/file/6227/restaurant-list-logo.png" width="30" height="30" class="d-inline-block align-top" alt="好。吃">
-          我的餐廳清單
-        </a>
-    </div>
-  </nav>
-  <div class="banner"></div>
-  <link rel="stylesheet" href="/stylesheets/show.css">
-</header>
-
 <form action="/restaurants/{{ restaurants._id }}?_method=PUT" method="post">
   <h1 class="mb-1 restaurant-show-title"><input type="text" style="width: 20em;" placeholder="name" name="name" value="{{restaurants.name}}"></h1>
   <div class="container">
     <div class="row">
       <div class="col-12 col-md-10 mx-auto">
         <p class="mb-1">
+            <span class="text-secondary">
+              <i class="fas fa-utensils pr-2"></i>
+              英文店名：
+            </span>
+              <input type="text" style="width: 30em;" placeholder="" name="name_en" value="{{restaurants.name_en}}" required>
+        </p>
+          <p class="mb-1">
           <span class="text-secondary">
             <i class="fas fa-utensils pr-2"></i>
-            類別：
+            餐廳類型：
           </span>
-          <input type="text" style="width: 40em;" placeholder="name" name="category" value="{{restaurants.category}}">
-        </p>
-        <p class="mb-1">
+              <input type="text" style="width: 30em;" placeholder="" name="category" value="{{restaurants.category}}" required>
+          </p>
+          <p class="mb-1">
           <span class="text-secondary">
             <i class="fas fa-map-marker-alt pr-2"></i>
             地址：
           </span>
-          <input type="text" style="width: 40em;" placeholder="name" name="location" value="{{restaurants.location}}">
-          <a href="https://goo.gl/maps/V9mKwVJ4s5v" class="text-secondary" target="_blank">
-            <i class="fas fa-location-arrow pr-2 fa-xs"></i>
-          </a>
-        </p>
-        <p class="mb-1">
+              <input type="text" style="width: 30em;" placeholder="" name="location" value="{{restaurants.location}}" required>
+          </p>
+          <p class="mb-1">
           <span class="text-secondary">
             <i class="fas fa-mobile-alt pr-2"></i>
             電話：
           </span>
-          <input type="text" style="width: 40em;" placeholder="name" name="phone" value="{{restaurants.phone}}">
-        </p>
-        <p class="mb-4">
+              <input type="text" style="width: 30em;" placeholder="" name="phone" value="{{restaurants.phone}}" required>
+          </p>
+          <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-utensils pr-2"></i>
+            google map URL：
+          </span>
+              <input type="text" style="width: 30em;" placeholder="" name="google_map" value="{{restaurants.google_map}}" required>
+          </p>
+          <p class="mb-2">
+        <span class="text-secondary">
+        <i class="fas fa-mobile-alt pr-2"></i>
+        評分：
+        </span>
+              <select name="rating">
+                  <option value="1" >1</option>
+                  <option value="2" >2</option>
+                  <option value="3" >3</option>
+                  <option value="4" >4</option>
+                  <option value="5" selected>5</option>
+              </select>
+          </p>
+          <p class="mb-2">
+          <span class="text-secondary">
+            <i class="fas fa-mobile-alt pr-2"></i>
+            圖片網址：
+          </span>
+              <input type="text" placeholder="" style="width: 30em;"  name="image" value="{{restaurants.image}}" required>
+          </p>
+          <p class="mb-5">
           <span class="text-secondary">
             <i class="fas fa-mobile-alt pr-2"></i>
             描述：
           </span>
-            <input type="text" style="width: 40em;" placeholder="name" name="description" value="{{restaurants.description}}">
-        </p>
-        <p class="">
-            <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            評分：
-            </span>
-            <select name="rating">
-              <option value="1">1</option>
-              <option value="2">2</option>
-              <option value="3" selected>3</option>
-              <option value="4">4</option>
-              <option value="5">5</option>
-            </select>
-        </p>
-        <p class="mb-2">
-          <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            圖片：
-          </span>
-            <input type="text" placeholder="name" style="width: 40em;"  name="image" value="{{restaurants.image}}">
-        </p>
+              <textarea type="text" style="width: 30em;" placeholder="" name="description" value="{{restaurants.description}}" required></textarea>
+          </p>
         <button type="submit">Save</button>
       </div>
-        <img class="rounded mx-auto d-block mb-4 w-100" src="{{restaurants.image}}" alt="{{restaurants.name}}" style="max-width: 600px;">
     </div>
   </div>
 </form>
