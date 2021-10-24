@@ -1,5 +1,5 @@
 const db = require('../../config/mongoose') // 載入 mongoose config
-const restaurantModel = require('../restaurantDBSchema')
+const restaurantModel = require('../restaurantData')
 const restaurantList = require('../../restaurant.json')
 
 //把json資料寫入DB
