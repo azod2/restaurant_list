@@ -13,6 +13,10 @@
   4. 餐廳描述  
 * 使用者可以透過搜尋餐廳名稱來找到特定的餐廳  
 * 使用者可以透過搜尋餐廳類別來找到特定的餐廳  
+* 可以註冊使用者
+* 可以新增、修改、刪除餐廳資料
+* 可以使用facebook登入
+
 ## 需求
 * node.js: v14.17.6
 * express: v4.17.1
@@ -29,6 +33,18 @@
 cd restaurant_list
 npm install
 ```
+
+```
+將.env.example改成.env，並將以下改成您的內容
+FACEBOOK_ID = 'YOUR ID'
+FACEBOOK_SECRET = 'YOUR SECRET'
+```
+
+*執行種子資料
+```
+npm run seed
+```
+
 * 執行
 ```
 npm run dev
