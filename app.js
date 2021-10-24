@@ -1,36 +1,59 @@
 // require packages used in the project
 const express = require('express')
-const app = express()
-const port = 3000
-
-//載入express-handlebars
 const exphbs = require('express-handlebars')
-const restaurantList = require('./restaurant.json')
+const session = require('express-session')
+const methodOverride = require('method-override')
+const flash = require('connect-flash')
+const routes = require('./routes')
+
+if (process.env.NODE_ENV !== 'production') {
+    require('dotenv').config()
+}
+//資料庫連線
+require('./config/mongoose')
+
+
+
+const usePassport = require('./config/passport')
+
+const app = express()
+const port = process.env.PORT
+
+// 設定每一筆請求都會透過 methodOverride 進行前置處理
+app.use(methodOverride('_method'))
+
 //使用layout既定格式
 app.engine('handlebars', exphbs({defaultLayout: 'main'}))
 app.set('view engine', 'handlebars')
+
+app.use(
+    session({
+        secret: process.env.SESSION_SECRET,
+        resave: false,
+        saveUninitialized: true
+    })
+)
+
 //CSS的存放位置
 app.use(express.static('public'))
 
-// routes setting
-app.get('/', (req, res) => {
-    res.render('index', { restaurants: restaurantList.results})
+app.use(express.urlencoded({ extended: true }))
+
+usePassport(app)
+
+app.use(flash())
+
+
+app.use((req, res, next) => {
+    res.locals.isAuthenticated = req.isAuthenticated()
+    res.locals.user = req.user
+    res.locals.success_msg = req.flash('success_msg')
+    res.locals.warning_msg = req.flash('warning_msg')
+    res.locals.error_msg = req.flash('error')
+    next()
 })
 
-
-app.get('/restaurants/:restaurant_id', (req, res) => {
-    const restaurants = restaurantList.results.filter( item => item.id.toString() === req.params.restaurant_id)
-    res.render('show', { restaurant: restaurants[0] })
-})
-
-app.get('/search', (req, res) => {
-    const keyword = req.query.keyword
-    const restaurants = restaurantList.results.filter(restaurant => {
-    return restaurant.name.toLowerCase().includes(keyword.toLowerCase()) || restaurant.category.toLowerCase().includes(keyword.toLowerCase())
-  })
-    res.render('index', { restaurants: restaurants, keyword: keyword })
-})
-
+app.use(routes)
 
 // start and listen on the Express server
 app.listen(port, () => {

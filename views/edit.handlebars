@@ -1,0 +1,72 @@
+<form action="/restaurants/{{ restaurants._id }}?_method=PUT" method="post">
+  <h1 class="mb-1 restaurant-show-title"><input type="text" style="width: 20em;" placeholder="name" name="name" value="{{restaurants.name}}"></h1>
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-10 mx-auto">
+        <p class="mb-1">
+            <span class="text-secondary">
+              <i class="fas fa-utensils pr-2"></i>
+              英文店名：
+            </span>
+              <input type="text" style="width: 30em;" placeholder="" name="name_en" value="{{restaurants.name_en}}" required>
+        </p>
+          <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-utensils pr-2"></i>
+            餐廳類型：
+          </span>
+              <input type="text" style="width: 30em;" placeholder="" name="category" value="{{restaurants.category}}" required>
+          </p>
+          <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-map-marker-alt pr-2"></i>
+            地址：
+          </span>
+              <input type="text" style="width: 30em;" placeholder="" name="location" value="{{restaurants.location}}" required>
+          </p>
+          <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-mobile-alt pr-2"></i>
+            電話：
+          </span>
+              <input type="text" style="width: 30em;" placeholder="" name="phone" value="{{restaurants.phone}}" required>
+          </p>
+          <p class="mb-1">
+          <span class="text-secondary">
+            <i class="fas fa-utensils pr-2"></i>
+            google map URL：
+          </span>
+              <input type="text" style="width: 30em;" placeholder="" name="google_map" value="{{restaurants.google_map}}" required>
+          </p>
+          <p class="mb-2">
+        <span class="text-secondary">
+        <i class="fas fa-mobile-alt pr-2"></i>
+        評分：
+        </span>
+              <select name="rating">
+                  <option value="1" >1</option>
+                  <option value="2" >2</option>
+                  <option value="3" >3</option>
+                  <option value="4" >4</option>
+                  <option value="5" selected>5</option>
+              </select>
+          </p>
+          <p class="mb-2">
+          <span class="text-secondary">
+            <i class="fas fa-mobile-alt pr-2"></i>
+            圖片網址：
+          </span>
+              <input type="text" placeholder="" style="width: 30em;"  name="image" value="{{restaurants.image}}" required>
+          </p>
+          <p class="mb-5">
+          <span class="text-secondary">
+            <i class="fas fa-mobile-alt pr-2"></i>
+            描述：
+          </span>
+              <textarea type="text" style="width: 30em;" placeholder="" name="description" value="{{restaurants.description}}" required></textarea>
+          </p>
+        <button type="submit">Save</button>
+      </div>
+    </div>
+  </div>
+</form>
