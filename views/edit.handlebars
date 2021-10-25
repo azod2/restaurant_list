@@ -5,43 +5,37 @@
       <div class="col-12 col-md-10 mx-auto">
         <p class="mb-1">
             <span class="text-secondary">
-              <i class="fas fa-utensils pr-2"></i>
-              英文店名：
+              <i class="fas fa-utensils pr-2">英文店名：</i>
             </span>
               <input type="text" style="width: 30em;" placeholder="" name="name_en" value="{{restaurants.name_en}}" required>
         </p>
           <p class="mb-1">
           <span class="text-secondary">
-            <i class="fas fa-utensils pr-2"></i>
-            餐廳類型：
+            <i class="fas fa-utensils pr-2">餐廳類型：</i>
           </span>
               <input type="text" style="width: 30em;" placeholder="" name="category" value="{{restaurants.category}}" required>
           </p>
           <p class="mb-1">
           <span class="text-secondary">
-            <i class="fas fa-map-marker-alt pr-2"></i>
-            地址：
+            <i class="fas fa-map-marker-alt pr-2">地址：</i>
           </span>
               <input type="text" style="width: 30em;" placeholder="" name="location" value="{{restaurants.location}}" required>
           </p>
           <p class="mb-1">
           <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            電話：
+            <i class="fas fa-mobile-alt pr-2">電話：</i>
           </span>
               <input type="text" style="width: 30em;" placeholder="" name="phone" value="{{restaurants.phone}}" required>
           </p>
           <p class="mb-1">
           <span class="text-secondary">
-            <i class="fas fa-utensils pr-2"></i>
-            google map URL：
+            <i class="fas fa-utensils pr-2">google map URL：</i>
           </span>
               <input type="text" style="width: 30em;" placeholder="" name="google_map" value="{{restaurants.google_map}}" required>
           </p>
           <p class="mb-2">
         <span class="text-secondary">
-        <i class="fas fa-mobile-alt pr-2"></i>
-        評分：
+        <i class="fas fa-mobile-alt pr-2">評分：</i>
         </span>
               <select name="rating">
                   <option value="1" >1</option>
@@ -53,17 +47,15 @@
           </p>
           <p class="mb-2">
           <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            圖片網址：
+            <i class="fas fa-mobile-alt pr-2">圖片網址：</i>
           </span>
               <input type="text" placeholder="" style="width: 30em;"  name="image" value="{{restaurants.image}}" required>
           </p>
           <p class="mb-5">
           <span class="text-secondary">
-            <i class="fas fa-mobile-alt pr-2"></i>
-            描述：
+            <i class="fas fa-mobile-alt pr-2">描述：</i>
           </span>
-              <textarea type="text" style="width: 30em;" placeholder="" name="description" value="{{restaurants.description}}" required></textarea>
+              <textarea type="text" style="width: 30em;" placeholder="" name="description" value="" required>{{restaurants.description}}</textarea>
           </p>
         <button type="submit">Save</button>
       </div>
